@@ -1,12 +1,10 @@
-const lottoTicketList = document.querySelector(".lotto-tickets");
+import { querySelector } from "../util/DOMSelector";
 
 export const lottoTicket = (number) => {
-  return `<ul class="lotto-ticket">
-<li class="ticket-emoji">🎟️</li>
-<li class="ticket-numbers">${number}</li>
-</ul>`;
+  return `<li class="ticket-numbers"><span class="ticket-emoji">🎟️</span>${number}</li>`;
 };
 
 export const printLottoTicket = (lottoTickets) => {
+  const lottoTicketList = querySelector("#lotto-tickets");
   lottoTicketList.innerHTML = lottoTickets.map((ticket) => lottoTicket(ticket)).join("");
 };
